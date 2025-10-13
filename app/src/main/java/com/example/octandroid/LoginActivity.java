@@ -2,6 +2,7 @@ package com.example.octandroid;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +35,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String mobileNo=edtMobile.getText().toString();
                 String password=edtPassword.getText().toString();
-
+                SharedPreferences sharedPreferences=getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
                 if (mobileNo.isEmpty() || password.isEmpty())
                 {
                     Toast.makeText(LoginActivity.this, "Please Enter Mobile No and Password", Toast.LENGTH_SHORT).show();
@@ -42,7 +44,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else if (mobileNo.equals("9876543210") && password.equals("12345"))
                 {
-                    Intent intent=new Intent(getApplicationContext(),ActivityLifeCycle.class);
+                    editor.putString("loginstatus","true");
+                    editor.apply();
+                    Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
                     startActivity(intent);
                     //Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                 }
