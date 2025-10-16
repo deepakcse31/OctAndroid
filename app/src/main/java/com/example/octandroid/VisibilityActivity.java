@@ -1,8 +1,9 @@
-   package com.example.octandroid;
+package com.example.octandroid;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.webkit.WebView;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,18 +11,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class WebActivity extends AppCompatActivity {
+public class VisibilityActivity extends AppCompatActivity {
 
-    WebView webView;
-  //  @SuppressLint({"MissingInflatedId", "SetJavaScriptEnabled"})
+    ImageView imageView;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_web);
-        webView=findViewById(R.id.webview);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://www.google.com/");
+        setContentView(R.layout.activity_visibility);
+        imageView = findViewById(R.id.img);
+        imageView.setVisibility(View.VISIBLE);
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
