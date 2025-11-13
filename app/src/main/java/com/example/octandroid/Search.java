@@ -4,9 +4,11 @@ public class Search {
     String Title;
     String Year;
     String imdbID;
+    //imdbID data
     String Type;
+    //type data
     String Poster;
-
+    //poster data
     public Search(String title, String year, String imdbID, String type, String poster) {
         Title = title;
         Year = year;
