@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class VisibilityActivity extends AppCompatActivity {
-
+    //imageview need to change
     ImageView imageView;
     @SuppressLint("MissingInflatedId")
     @Override
